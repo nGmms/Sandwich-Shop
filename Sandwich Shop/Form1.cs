@@ -47,6 +47,27 @@ namespace Sandwich_Shop
             sandwichIngredients.Add(new SandwichIngredients("Cheese", 0.20));
             sandwichIngredients.Add(new SandwichIngredients("Tomatoes", 0.20));
             sandwichIngredients.Add(new SandwichIngredients("Mayonnaise",0.20 ));
+
+            foreach(var ingredients in sandwichIngredients)
+            {
+                CheckBox IngredientsCheckBox = new CheckBox();
+                IngredientsCheckBox.Text = ingredients.Name;
+                IngredientsCheckBox.Tag = ingredients;
+                IngredientsCheckBox.AutoSize = true;
+                IngredientsCheckBox.CheckedChanged += IngredientsCheckBox_CheckedChanged;
+                IngredientsFlowLayoutPanel.Controls.Add(IngredientsCheckBox);
+            }
+        }
+
+        private void IngredientsCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox ingredientCheckBox = sender as CheckBox;
+            SandwichIngredients ingredients = ingredientCheckBox.Tag as SandwichIngredients;
+
+            if (ingredientCheckBox.Checked)
+            {
+                MessageBox.Show(ingredients.Name);
+            }
         }
 
         private void BreadRadioButton_CheckedChanged(object sender, EventArgs e)
