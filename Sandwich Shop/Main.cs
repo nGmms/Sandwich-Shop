@@ -43,12 +43,12 @@ namespace Sandwich_Shop
 
             sandwichIngredients.Add(new SandwichIngredients("Lettuce", 0.10));
             sandwichIngredients.Add(new SandwichIngredients("Ham",0.20));
-            sandwichIngredients.Add(new SandwichIngredients("Turkey", 0.25));
             sandwichIngredients.Add(new SandwichIngredients("Cheese", 0.20));
             sandwichIngredients.Add(new SandwichIngredients("Tomatoes", 0.20));
             sandwichIngredients.Add(new SandwichIngredients("Mayonnaise",0.20 ));
+            sandwichIngredients.Add(new SandwichIngredients("Turkey", 0.25));
 
-            foreach(var ingredients in sandwichIngredients)
+            foreach (var ingredients in sandwichIngredients)
             {
                 CheckBox IngredientsCheckBox = new CheckBox();
                 IngredientsCheckBox.Text = ingredients.Name;
