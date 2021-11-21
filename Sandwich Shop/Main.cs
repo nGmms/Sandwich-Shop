@@ -14,11 +14,13 @@ namespace Sandwich_Shop
     {
         List<SandwichBread> sandwichBread = new List<SandwichBread>();
         List<SandwichIngredients> sandwichIngredients = new List<SandwichIngredients>();
-        public static double Cost = 0.0;
+        
+       
 
         public MainForm()
         {
             InitializeComponent();
+            PriceTextBox.Enabled = false;
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -66,7 +68,7 @@ namespace Sandwich_Shop
 
             if (ingredientCheckBox.Checked)
             {
-                MessageBox.Show(ingredients.Name);
+                PriceDisplayer();
             }
         }
 
@@ -77,8 +79,55 @@ namespace Sandwich_Shop
 
             if (breadRadioButton.Checked)
             {
-                MessageBox.Show(bread.Name);
+                PriceDisplayer();
             }
+        }
+      
+        private void PriceDisplayer()
+        {
+
+            double price = 0;
+            
+            foreach (RadioButton breadRadioButton in BreadFlowLayoutPanel.Controls)
+            {
+                if (breadRadioButton.Checked)
+                {
+                  
+                  SandwichBread sandwichBread = breadRadioButton.Tag as SandwichBread;
+                  price += sandwichBread.Price;
+                    
+                   
+                }
+            }
+
+            
+            foreach (CheckBox ingredientsCheckBox in IngredientsFlowLayoutPanel.Controls)
+            {
+                if (ingredientsCheckBox.Checked)
+                {
+
+                    SandwichIngredients sandwichIngredients = ingredientsCheckBox.Tag as SandwichIngredients;
+                    price += sandwichIngredients.Price;
+                    
+
+                }
+
+            }
+            PriceTextBox.Text = "$" + price.ToString();
+            
+
+
+
+        }
+
+        private void PriceTextBox_TextChanged(object sender, EventArgs e)
+        {
+            PriceDisplayer();
+        }
+
+        private void PriceLabelBox_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

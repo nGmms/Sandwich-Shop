@@ -37,6 +37,8 @@ namespace Sandwich_Shop
             this.SandwichOrderLabel = new System.Windows.Forms.Label();
             this.BreadFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.IngredientsFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.PriceLabelBox = new System.Windows.Forms.Label();
+            this.PriceTextBox = new System.Windows.Forms.TextBox();
             this.BreadFlowLayoutPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -106,11 +108,31 @@ namespace Sandwich_Shop
             this.IngredientsFlowLayoutPanel.Size = new System.Drawing.Size(268, 121);
             this.IngredientsFlowLayoutPanel.TabIndex = 7;
             // 
+            // PriceLabelBox
+            // 
+            this.PriceLabelBox.AutoSize = true;
+            this.PriceLabelBox.Location = new System.Drawing.Point(324, 381);
+            this.PriceLabelBox.Name = "PriceLabelBox";
+            this.PriceLabelBox.Size = new System.Drawing.Size(35, 13);
+            this.PriceLabelBox.TabIndex = 8;
+            this.PriceLabelBox.Text = "label1";
+            this.PriceLabelBox.Click += new System.EventHandler(this.PriceLabelBox_Click);
+            // 
+            // PriceTextBox
+            // 
+            this.PriceTextBox.Location = new System.Drawing.Point(365, 376);
+            this.PriceTextBox.Name = "PriceTextBox";
+            this.PriceTextBox.Size = new System.Drawing.Size(100, 20);
+            this.PriceTextBox.TabIndex = 9;
+            this.PriceTextBox.TextChanged += new System.EventHandler(this.PriceTextBox_TextChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.PriceTextBox);
+            this.Controls.Add(this.PriceLabelBox);
             this.Controls.Add(this.IngredientsFlowLayoutPanel);
             this.Controls.Add(this.BreadFlowLayoutPanel);
             this.Controls.Add(this.SandwichOrderLabel);
@@ -137,6 +159,8 @@ namespace Sandwich_Shop
         private System.Windows.Forms.Label SandwichOrderLabel;
         private System.Windows.Forms.FlowLayoutPanel BreadFlowLayoutPanel;
         private System.Windows.Forms.FlowLayoutPanel IngredientsFlowLayoutPanel;
+        private System.Windows.Forms.Label PriceLabelBox;
+        private System.Windows.Forms.TextBox PriceTextBox;
     }
 }
 
