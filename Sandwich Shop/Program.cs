@@ -14,6 +14,14 @@ namespace Sandwich_Shop
         [STAThread]
         static void Main()
         {
+
+            // Needed for splash screen
+            /* Application.EnableVisualStyles();
+             Application.SetCompatibleTextRenderingDefault(false);
+             SplashScreen splashScreen = new SplashScreen();
+             splashScreen.ShowDialog();
+             Application.Run(new MainForm()); */
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());

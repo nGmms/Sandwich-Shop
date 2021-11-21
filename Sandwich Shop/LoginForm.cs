@@ -7,17 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 
 namespace Sandwich_Shop
 {
-    public partial class SettingsForm : Form
+    public partial class LoginForm : Form
     {
-        public SettingsForm()
+        public LoginForm()
         {
             InitializeComponent();
         }
 
-        private void SettingsForm_Load(object sender, EventArgs e)
+        private void LoginForm_Load(object sender, EventArgs e)
         {
 
         }

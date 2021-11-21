@@ -104,6 +104,7 @@ namespace Sandwich_Shop
             this.Controls.Add(this.BreadSaveButton);
             this.Name = "SettingsForm";
             this.Text = "SettingsForm";
+            this.Load += new System.EventHandler(this.SettingsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.BreadDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.IngredientDataGridView)).EndInit();
             this.ResumeLayout(false);

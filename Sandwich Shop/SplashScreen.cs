@@ -16,5 +16,11 @@ namespace Sandwich_Shop
         {
             InitializeComponent();
         }
+
+        private void SplashTimer_Tick(object sender, EventArgs e)
+        {
+            //Close the splash form
+            this.Close();
+        }
     }
 }
