@@ -69,6 +69,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sandwich.cs" />
     <Compile Include="SandwichBread.cs" />
     <Compile Include="SandwichIngredients.cs" />
     <Compile Include="SandwichLogin.cs" />

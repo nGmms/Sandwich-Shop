@@ -47,6 +47,7 @@ namespace Sandwich_Shop
             this.BreadSaveButton.TabIndex = 0;
             this.BreadSaveButton.Text = "Save";
             this.BreadSaveButton.UseVisualStyleBackColor = true;
+            this.BreadSaveButton.Click += new System.EventHandler(this.BreadSaveButton_Click);
             // 
             // BreadResetButton
             // 
@@ -65,6 +66,7 @@ namespace Sandwich_Shop
             this.IngredientSaveButton.TabIndex = 2;
             this.IngredientSaveButton.Text = "Save";
             this.IngredientSaveButton.UseVisualStyleBackColor = true;
+            this.IngredientSaveButton.Click += new System.EventHandler(this.IngredientSaveButton_Click);
             // 
             // IngredientResetButton
             // 

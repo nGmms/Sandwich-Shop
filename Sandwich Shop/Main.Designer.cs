@@ -33,7 +33,7 @@ namespace Sandwich_Shop
             this.IngredientsGroupBox = new System.Windows.Forms.GroupBox();
             this.SandwichListBox = new System.Windows.Forms.ListBox();
             this.PriceLabel = new System.Windows.Forms.Label();
-            this.OrderButton = new System.Windows.Forms.Button();
+            this.AddButton = new System.Windows.Forms.Button();
             this.SandwichOrderLabel = new System.Windows.Forms.Label();
             this.BreadFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.IngredientsFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
@@ -63,8 +63,9 @@ namespace Sandwich_Shop
             this.SandwichListBox.FormattingEnabled = true;
             this.SandwichListBox.Location = new System.Drawing.Point(327, 106);
             this.SandwichListBox.Name = "SandwichListBox";
-            this.SandwichListBox.Size = new System.Drawing.Size(157, 264);
+            this.SandwichListBox.Size = new System.Drawing.Size(300, 264);
             this.SandwichListBox.TabIndex = 2;
+            this.SandwichListBox.SelectedIndexChanged += new System.EventHandler(this.SandwichListBox_SelectedIndexChanged);
             // 
             // PriceLabel
             // 
@@ -74,14 +75,15 @@ namespace Sandwich_Shop
             this.PriceLabel.Size = new System.Drawing.Size(0, 13);
             this.PriceLabel.TabIndex = 3;
             // 
-            // OrderButton
+            // AddButton
             // 
-            this.OrderButton.Location = new System.Drawing.Point(32, 371);
-            this.OrderButton.Name = "OrderButton";
-            this.OrderButton.Size = new System.Drawing.Size(75, 23);
-            this.OrderButton.TabIndex = 4;
-            this.OrderButton.Text = "Order";
-            this.OrderButton.UseVisualStyleBackColor = true;
+            this.AddButton.Location = new System.Drawing.Point(32, 371);
+            this.AddButton.Name = "AddButton";
+            this.AddButton.Size = new System.Drawing.Size(75, 23);
+            this.AddButton.TabIndex = 4;
+            this.AddButton.Text = "Add";
+            this.AddButton.UseVisualStyleBackColor = true;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
             // 
             // SandwichOrderLabel
             // 
@@ -136,7 +138,7 @@ namespace Sandwich_Shop
             this.Controls.Add(this.IngredientsFlowLayoutPanel);
             this.Controls.Add(this.BreadFlowLayoutPanel);
             this.Controls.Add(this.SandwichOrderLabel);
-            this.Controls.Add(this.OrderButton);
+            this.Controls.Add(this.AddButton);
             this.Controls.Add(this.PriceLabel);
             this.Controls.Add(this.SandwichListBox);
             this.Controls.Add(this.IngredientsGroupBox);
@@ -155,7 +157,7 @@ namespace Sandwich_Shop
         private System.Windows.Forms.GroupBox IngredientsGroupBox;
         private System.Windows.Forms.ListBox SandwichListBox;
         private System.Windows.Forms.Label PriceLabel;
-        private System.Windows.Forms.Button OrderButton;
+        private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.Label SandwichOrderLabel;
         private System.Windows.Forms.FlowLayoutPanel BreadFlowLayoutPanel;
         private System.Windows.Forms.FlowLayoutPanel IngredientsFlowLayoutPanel;

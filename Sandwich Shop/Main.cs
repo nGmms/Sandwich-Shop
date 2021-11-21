@@ -12,6 +12,7 @@ namespace Sandwich_Shop
 {
     public partial class MainForm : Form
     {
+        //Creating the lists from the classes
         List<SandwichBread> sandwichBread = new List<SandwichBread>();
         List<SandwichIngredients> sandwichIngredients = new List<SandwichIngredients>();
         
@@ -25,13 +26,14 @@ namespace Sandwich_Shop
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-
+            //Creating each bread type, cost and max ingredients
             sandwichBread.Add(new SandwichBread("White Bread", 2, 3));
             sandwichBread.Add(new SandwichBread("Whole Grain Braid", 3, 3));
             sandwichBread.Add(new SandwichBread("Baguette", 4, 4));
 
             BreadFlowLayoutPanel.Controls.Clear();
 
+            //We generate the radio buttons inside the flow layout panel
             foreach(var bread in sandwichBread)
             {
                 RadioButton BreadRadioButton = new RadioButton();
@@ -42,7 +44,7 @@ namespace Sandwich_Shop
                 BreadFlowLayoutPanel.Controls.Add(BreadRadioButton);
             }
 
-
+            //Creating each ingredient and cost 
             sandwichIngredients.Add(new SandwichIngredients("Lettuce", 0.10));
             sandwichIngredients.Add(new SandwichIngredients("Ham",0.20));
             sandwichIngredients.Add(new SandwichIngredients("Cheese", 0.20));
@@ -50,6 +52,7 @@ namespace Sandwich_Shop
             sandwichIngredients.Add(new SandwichIngredients("Mayonnaise",0.20 ));
             sandwichIngredients.Add(new SandwichIngredients("Turkey", 0.25));
 
+            //We generate the check boxes inside the flow layout panel
             foreach (var ingredients in sandwichIngredients)
             {
                 CheckBox IngredientsCheckBox = new CheckBox();
@@ -63,9 +66,11 @@ namespace Sandwich_Shop
 
         private void IngredientsCheckBox_CheckedChanged(object sender, EventArgs e)
         {
+
             CheckBox ingredientCheckBox = sender as CheckBox;
             SandwichIngredients ingredients = ingredientCheckBox.Tag as SandwichIngredients;
 
+            //If ingredient is checked we display the price without clicking the order button
             if (ingredientCheckBox.Checked)
             {
                 PriceDisplayer();
@@ -120,6 +125,34 @@ namespace Sandwich_Shop
 
         }
 
+        private Sandwich GetSandwich()
+        {
+            Sandwich sandwich = new Sandwich();
+            foreach(RadioButton entry in BreadFlowLayoutPanel.Controls)
+            {
+                if (entry.Checked)
+                {
+                    sandwich.Bread = entry.Tag as SandwichBread;
+                }
+            }
+
+            //Don't continue if no bread is selected
+            if (sandwich.Bread == null)
+                return null;
+
+            foreach(CheckBox entry in IngredientsFlowLayoutPanel.Controls)
+            {
+                if (entry.Checked)
+                {
+                    var ingredient = entry.Tag as SandwichIngredients;
+                    sandwich.Ingredients.Add(ingredient);
+                }
+            }
+            
+            return sandwich;
+
+        }
+
         private void PriceTextBox_TextChanged(object sender, EventArgs e)
         {
             PriceDisplayer();
@@ -128,6 +161,18 @@ namespace Sandwich_Shop
         private void PriceLabelBox_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void SandwichListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void AddButton_Click(object sender, EventArgs e)
+        {
+
+            SandwichListBox.Items.Add(GetSandwich());
+
         }
     }
 }
