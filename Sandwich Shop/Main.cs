@@ -16,10 +16,11 @@ namespace Sandwich_Shop
         List<SandwichBread> sandwichBread = new List<SandwichBread>();
         List<SandwichIngredients> sandwichIngredients = new List<SandwichIngredients>();
         
-       
+
 
         public MainForm()
         {
+            
             InitializeComponent();
             PriceTextBox.Enabled = false;
         }
@@ -174,5 +175,42 @@ namespace Sandwich_Shop
             SandwichListBox.Items.Add(GetSandwich());
 
         }
+
+        private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SettingsForm settingsForm = new SettingsForm();
+            settingsForm.ShowDialog();
+        }
+
+        private void aboutUsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var aboutUsForm = new AboutScreen();
+            aboutUsForm.ShowDialog();
+        }
+
+        //Delivery time
+        /*private void maskedDeliveryTimeTextBox_TypeValidationCompleted(object sender, TypeValidationEventArgs e)
+        {
+            var deliveryTime = sender as MaskedTextBox;
+
+            DateTime now = DateTime.Now; //Current time
+            DateTime delTime = DateTime.Parse(deliveryTime.Text);
+
+            if (delTime <= now)
+            {
+
+                MessageBox.Show($"Invalid time {delTime.ToShortTimeString()} (Past time)", "Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Error);
+            }
+            else
+            {
+
+                DialogResult r1 = MessageBox.Show($"The total for your pizza is ${Cost} (to be delivered at {delTime}) are you sure you want to order?", "Order", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (r1 == DialogResult.Yes) { MessageBox.Show($"The order is succesful", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information); }
+                if (r1 == DialogResult.No) { MessageBox.Show($"The order is cancelled", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning); }
+        
+            }
+        
+        }
+        */
     }
 }

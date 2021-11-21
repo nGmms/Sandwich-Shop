@@ -39,7 +39,12 @@ namespace Sandwich_Shop
             this.IngredientsFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.PriceLabelBox = new System.Windows.Forms.Label();
             this.PriceTextBox = new System.Windows.Forms.TextBox();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutUsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.BreadFlowLayoutPanel.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // BreadGroupBox
@@ -128,11 +133,46 @@ namespace Sandwich_Shop
             this.PriceTextBox.TabIndex = 9;
             this.PriceTextBox.TextChanged += new System.EventHandler(this.PriceTextBox_TextChanged);
             // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(800, 25);
+            this.toolStrip1.TabIndex = 10;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.settingsToolStripMenuItem,
+            this.aboutUsToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.TabIndex = 11;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // settingsToolStripMenuItem
+            // 
+            this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.settingsToolStripMenuItem.Text = "Settings";
+            this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
+            // 
+            // aboutUsToolStripMenuItem
+            // 
+            this.aboutUsToolStripMenuItem.Name = "aboutUsToolStripMenuItem";
+            this.aboutUsToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.aboutUsToolStripMenuItem.Text = "About us";
+            this.aboutUsToolStripMenuItem.Click += new System.EventHandler(this.aboutUsToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.toolStrip1);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.PriceTextBox);
             this.Controls.Add(this.PriceLabelBox);
             this.Controls.Add(this.IngredientsFlowLayoutPanel);
@@ -142,10 +182,13 @@ namespace Sandwich_Shop
             this.Controls.Add(this.PriceLabel);
             this.Controls.Add(this.SandwichListBox);
             this.Controls.Add(this.IngredientsGroupBox);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = "Sandwich Order";
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.BreadFlowLayoutPanel.ResumeLayout(false);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -163,6 +206,10 @@ namespace Sandwich_Shop
         private System.Windows.Forms.FlowLayoutPanel IngredientsFlowLayoutPanel;
         private System.Windows.Forms.Label PriceLabelBox;
         private System.Windows.Forms.TextBox PriceTextBox;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem settingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutUsToolStripMenuItem;
     }
 }
 
