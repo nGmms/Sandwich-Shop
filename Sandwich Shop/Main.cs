@@ -70,12 +70,22 @@ namespace Sandwich_Shop
 
             CheckBox ingredientCheckBox = sender as CheckBox;
             SandwichIngredients ingredients = ingredientCheckBox.Tag as SandwichIngredients;
-
+           // double counter = 0;
+            //SandwichBread sandwichBread = new SandwichBread();
             //If ingredient is checked we display the price without clicking the order button
-            if (ingredientCheckBox.Checked)
-            {
-                PriceDisplayer();
-            }
+            
+                if (ingredientCheckBox.Checked)
+                {
+
+                    //counter++;
+
+                    PriceDisplayer();
+                }
+                /*if (counter >= sandwichBread.MaxIngredients)
+                {
+                    MessageBox.Show("Too many ingredients!");
+                } */
+            
         }
 
         private void BreadRadioButton_CheckedChanged(object sender, EventArgs e)
@@ -93,6 +103,7 @@ namespace Sandwich_Shop
         {
 
             double price = 0;
+            
             
             foreach (RadioButton breadRadioButton in BreadFlowLayoutPanel.Controls)
             {

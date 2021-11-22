@@ -16,11 +16,11 @@ namespace Sandwich_Shop
         {
 
             // Needed for splash screen
-            /* Application.EnableVisualStyles();
+             Application.EnableVisualStyles();
              Application.SetCompatibleTextRenderingDefault(false);
              SplashScreen splashScreen = new SplashScreen();
              splashScreen.ShowDialog();
-             Application.Run(new MainForm()); */
+             Application.Run(new LoginForm());
 
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

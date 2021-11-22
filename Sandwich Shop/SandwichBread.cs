@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sandwich_Shop
 {
-    class SandwichBread
+    public class SandwichBread
     {
         public SandwichBread()
         {

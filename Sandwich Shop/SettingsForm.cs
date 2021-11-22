@@ -16,11 +16,21 @@ namespace Sandwich_Shop
     {
         List<SandwichBread> sandwichBread = new List<SandwichBread>();
         List<SandwichIngredients> sandwichIngredients = new List<SandwichIngredients>();
-        const string sandiwchBreadsFile = "SandwichBreads.json"; //needed to save size
+      
+        const string BreadsFile = "breads.json";
+        const string IngredientsFile = "ingredients.json";
+
+        public List<SandwichBread> Breads { get; set; }
+        public List<SandwichIngredients> Ingredients { get; set; }
+      
 
         public SettingsForm()
         {
             InitializeComponent();
+            LoadBreads();
+            LoadIngredients();
+
+           
         }
 
         private void SettingsForm_Load(object sender, EventArgs e)
@@ -40,7 +50,7 @@ namespace Sandwich_Shop
 
             IngredientDataGridView.DataSource = new BindingList<SandwichIngredients>(sandwichIngredients);
         }
-        private void SaveSizes()
+        private void SaveBreads()
         {
             var serializedSize = JsonConvert.SerializeObject(sandwichBread);
             //File.WriteAllText(SandwichBreadFile, serializedSize, Encoding.UTF8);
@@ -52,18 +62,40 @@ namespace Sandwich_Shop
 
         private void BreadSaveButton_Click(object sender, EventArgs e)
         {
-            SaveSizes();
-            MessageBox.Show("Successfully saved Bread", "Success", MessageBoxButtons.OK);
+            var jsonString = JsonConvert.SerializeObject(Breads);
+            File.WriteAllText(BreadsFile, jsonString);
+            MessageBox.Show("Successfully saved the Bread and the price.", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void IngredientSaveButton_Click(object sender, EventArgs e)
         {
-            SaveSizes();
-            MessageBox.Show("Successfully saved Ingredients", "Success", MessageBoxButtons.OK);
+            SaveBreads();
+            
+            MessageBox.Show("Successfully saved the Ingredients.", "Success!", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-        private void LoadSizes()
+        private void LoadBreads()
         {
+            if (File.Exists(BreadsFile))
+            {
+                var jsonString = File.ReadAllText(BreadsFile);
+                Breads = JsonConvert.DeserializeObject<List<SandwichBread>>(jsonString);
+            }
+            else
+               // BreadSaveButton = new List<SandwichBread>();
+
             BreadDataGridView.DataSource = new BindingList<SandwichBread>(sandwichBread);
+        }
+        private void LoadIngredients()
+        {
+            if (File.Exists(IngredientsFile))
+            {
+                var jsonString = File.ReadAllText(IngredientsFile);
+                Breads = JsonConvert.DeserializeObject<List<SandwichBread>>(jsonString);
+            }
+            else
+               // IngredientSaveButton = new List<SandwichIngredients>();
+
+            BreadDataGridView.DataSource = new BindingList<SandwichIngredients>(sandwichIngredients);
         }
 
     }

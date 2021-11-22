@@ -13,6 +13,7 @@ namespace Sandwich_Shop
 
         }
         public SandwichBread Bread { get; set; }
+        
         public List<SandwichIngredients> Ingredients { get; set; } = new List<SandwichIngredients>();
 
         public override string ToString()
@@ -30,8 +31,10 @@ namespace Sandwich_Shop
         }
         internal double GetPrice()
         {
+            
             double price = 0;
             price += Bread.Price;
+            
             //todo
             return price;
         }
